@@ -52,6 +52,11 @@ class Animal:
         """Prints the sound of the animal."""
         print(f"The {self.animal_name} says {self.sound}!")
 
+    def change_name(self, new_name: str) -> None:
+        """Changes the name of the animal."""
+        self.animal_name = new_name
+        print(f"The animal's name has been changed to {self.animal_name}.")
+
 if __name__ == "__main__":
     print(greet_user(NAME))
 
@@ -65,4 +70,8 @@ if __name__ == "__main__":
 
     # Demonstrate class usage
     dog = Animal("dog", "woof")
+    dog.make_sound()
+
+    # Changing the animal's name
+    dog.change_name("puppy")
     dog.make_sound()
