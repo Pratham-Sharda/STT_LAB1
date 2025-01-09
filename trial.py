@@ -1,67 +1,68 @@
-# Basic Python script demonstrating various features
+"""
+This module demonstrates basic Python functionality including variables, loops,
+conditionals, functions, and classes.
+"""
 
-# Variables and printing
-name = "Alice"
-age = 25
-print(f"Hello, {name}! You are {age} years old.")
+NAME = "Alice"  # Updated to follow UPPER_CASE naming style
+AGE = 25
 
-# Basic arithmetic
-a = 10
-b = 20
-print("Sum:", a + b)
-print("Difference:", b - a)
-print("Product:", a * b)
-print("Division:", b / a)
+def greet_user(user_name: str) -> str:
+    """Returns a greeting message for the given name."""
+    return f"Hello, {user_name}! You are {AGE} years old."
 
-# Lists and loops
-fruits = ["apple", "banana", "cherry", "date"]
-print("\nFruits list:")
-for fruit in fruits:
-    print(f"- {fruit}")
+def arithmetic_operations(num1: int, num2: int) -> None:
+    """
+    Performs basic arithmetic operations on two numbers and prints the results.
 
-# Conditional statements
-print("\nConditional checks:")
-if age > 18:
-    print("You are an adult.")
-else:
-    print("You are a minor.")
+    Args:
+        num1 (int): The first number.
+        num2 (int): The second number.
+    """
+    print("Sum:", num1 + num2)
+    print("Difference:", num2 - num1)
+    print("Product:", num1 * num2)
+    print("Division:", num2 / num1)
 
-# Functions
-def greet(name):
-    return f"Hello, {name}!"
+def display_fruits(fruit_list: list) -> None:
+    """
+    Displays the list of fruits.
 
-print("\nFunction output:")
-print(greet("Bob"))
+    Args:
+        fruit_list (list): A list of fruits to display.
+    """
+    print("\nFruits list:")
+    for fruit in fruit_list:
+        print(f"- {fruit}")
 
-# Dictionaries
-person = {"name": "Charlie", "age": 30, "city": "New York"}
-print("\nDictionary:")
-for key, value in person.items():
-    print(f"{key}: {value}")
-
-
-# List comprehension
-print("\nSquares of numbers from 1 to 5:")
-squares = [x**2 for x in range(1, 6)]
-print(squares)
-
-# Exception handling
-try:
-    result = 10 / 0
-except ZeroDivisionError:
-    print("\nException: Cannot divide by zero!")
-
-# Class and object
 class Animal:
-    def __init__(self, name, sound):
-        self.name = name
+    """Represents an animal with a name and a sound."""
+
+    def __init__(self, animal_name: str, sound: str) -> None:
+        """
+        Initializes the Animal class.
+
+        Args:
+            animal_name (str): The name of the animal.
+            sound (str): The sound the animal makes.
+        """
+        self.animal_name = animal_name
         self.sound = sound
 
-    def make_sound(self):
-        print(f"The {self.name} says {self.sound}!")
+    def make_sound(self) -> None:
+        """Prints the sound of the animal."""
+        print(f"The {self.animal_name} says {self.sound}!")
 
-print("\nClass and object:")
-dog = Animal("dog", "woof")
-dog.make_sound()
+if __name__ == "__main__":
+    print(greet_user(NAME))
 
-print("\nEnd of script.")
+    # Perform arithmetic operations
+    NUM1, NUM2 = 10, 20  # Updated to follow UPPER_CASE naming style
+    arithmetic_operations(NUM1, NUM2)
+
+    # Display fruits
+    FRUITS = ["apple", "banana", "cherry"]
+    display_fruits(FRUITS)
+
+    # Demonstrate class usage
+    dog = Animal("dog", "woof")
+    dog.make_sound()
